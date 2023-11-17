@@ -1,7 +1,5 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { Box, Typography, Container } from "@mui/material";
 import { TbPokeball } from "react-icons/tb";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import FlexBetween from "../FlexBetweenBox";
@@ -56,14 +54,13 @@ const Header = (props: HeaderProps) => {
               component="a"
               href=""
               sx={{
-                mr: 2,
-                pl: 1,
+                // mr: 2,
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
                 fontFamily: "quicksand",
-                fontSize: "1rem",
+                fontSize: "0.75rem",
                 fontWeight: 900,
-                letterSpacing: ".3rem",
+                letterSpacing: ".2rem",
                 color: "inherit",
                 textDecoration: "none",
               }}

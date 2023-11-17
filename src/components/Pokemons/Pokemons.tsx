@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Box, Button, Typography, IconButton } from "@mui/material";
+import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import FlexBetween from "../FlexBetweenBox";
 import { typeColor } from "./TypeColor";
 import Snackbar from "@mui/material/Snackbar";
 
 const Pokemons = () => {
+  const isNonMobileScreens = useMediaQuery(
+    "(min-width:1000px) and (max-height:2160px)"
+  );
   const [squad, setSquad] = useState([]);
 
   const getPokemon = async () => {
@@ -96,7 +99,7 @@ const Pokemons = () => {
         display={"flex"}
         flexDirection={"row"}
         justifyContent={"center"}
-        p={4}
+        p={isNonMobileScreens ? 4 : 1}
       >
         {squad.length >= 6 ? (
           <>
@@ -106,7 +109,7 @@ const Pokemons = () => {
               onClick={() => setSquad([])}
               disabled={openFullSnackbar}
               sx={{
-                padding: "1.5rem 4rem",
+                padding: isNonMobileScreens ? "1.5rem 4rem" : "1rem 3rem",
                 textTransform: "none",
                 borderRadius: "6rem",
                 boxShadow: "none",
@@ -139,7 +142,7 @@ const Pokemons = () => {
             size="large"
             onClick={getPokemon}
             sx={{
-              padding: "1.5rem 4rem",
+              padding: isNonMobileScreens ? "1.5rem 4rem" : "1rem 3rem",
               textTransform: "none",
               borderRadius: "6rem",
               backgroundColor: "#00db9a",
@@ -192,8 +195,8 @@ const Pokemons = () => {
 
       {/* Pokemons Container */}
       <Box
-        gap={4}
-        pt={8}
+        gap={isNonMobileScreens ? 4 : 1}
+        pt={isNonMobileScreens ? 8 : 2}
         display={"flex"}
         flexDirection={"row"}
         justifyContent={"center"}
@@ -206,34 +209,42 @@ const Pokemons = () => {
             <>
               {/* Pokemon Modal */}
               <Box
-                flexBasis={"12%"}
+                flexBasis={isNonMobileScreens ? "12%" : "8%"}
                 display={"flex"}
                 flexDirection={"column"}
                 alignContent={"center"}
                 sx={{
                   border: "solid 2px #50646b",
                   borderRadius: "1rem",
-                  p: 1.5,
+                  p: isNonMobileScreens ? 1.5 : "0.25rem 0.75rem",
                 }}
               >
                 <img src={pokemon?.sprites.front_default} />
 
                 <Box>
                   <Typography
-                    sx={{ fontWeight: 600, pb: 0.5, textAlign: "center" }}
+                    sx={{
+                      fontWeight: 600,
+                      pb: isNonMobileScreens ? 0.5 : 0,
+                      textAlign: "center",
+                    }}
                   >
                     {capFirstLetter(pokemon?.name)}
                   </Typography>
                 </Box>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>Type:</Typography>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
+                    Type:
+                  </Typography>
                   <Typography
                     sx={{
                       backgroundColor: typeColor(pokemon?.types[0].type.name),
-                      p: "1% 8% 1.5% 8%",
+                      p: isNonMobileScreens ? "1% 8% 1.5% 8%" : "0.5% 8%",
                       borderRadius: "2rem",
-                      fontSize: "0.75rem",
+                      fontSize: isNonMobileScreens ? "0.75rem" : "0.6rem",
                       fontWeight: 600,
                       m: "0.5rem 0",
                       color: "#fff",
@@ -244,64 +255,116 @@ const Pokemons = () => {
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
                     {pokemon?.stats[0].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontFamily: "exo",
+                      fontSize: isNonMobileScreens ? undefined : "0.75rem",
+                    }}
+                  >
                     {pokemon?.stats[0].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
                     {pokemon?.stats[1].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontFamily: "exo",
+                      fontSize: isNonMobileScreens ? undefined : "0.75rem",
+                    }}
+                  >
                     {pokemon?.stats[1].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
                     {pokemon?.stats[2].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontFamily: "exo",
+                      fontSize: isNonMobileScreens ? undefined : "0.75rem",
+                    }}
+                  >
                     {pokemon?.stats[2].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
                     {pokemon?.stats[3].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontFamily: "exo",
+                      fontSize: isNonMobileScreens ? undefined : "0.75rem",
+                    }}
+                  >
                     {pokemon?.stats[3].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
                     {pokemon?.stats[4].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontFamily: "exo",
+                      fontSize: isNonMobileScreens ? undefined : "0.75rem",
+                    }}
+                  >
                     {pokemon?.stats[4].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
                     {pokemon?.stats[5].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
+                  <Typography
+                    sx={{
+                      fontWeight: 600,
+                      fontFamily: "exo",
+                      fontSize: isNonMobileScreens ? undefined : "0.75rem",
+                    }}
+                  >
                     {pokemon?.stats[5].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
-                  <Typography sx={{ fontSize: "0.75rem" }}>Total:</Typography>
+                  <Typography
+                    sx={{ fontSize: isNonMobileScreens ? "0.75rem" : "0.5rem" }}
+                  >
+                    Total:
+                  </Typography>
                   <Typography
                     sx={{
-                      fontSize: "1.5rem",
+                      fontSize: isNonMobileScreens ? "1.5rem" : "1rem",
                       fontWeight: 800,
                       fontFamily: "exo",
                     }}
