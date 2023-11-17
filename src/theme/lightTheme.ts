@@ -10,7 +10,7 @@ const lightTheme: ThemeOptions = {
       main: "#ff8400",
     },
     background: {
-      default: "#e6ebe9",
+      default: "#cadbe0",
     },
   },
 };
