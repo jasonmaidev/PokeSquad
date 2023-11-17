@@ -2,37 +2,33 @@ import { useState } from "react";
 import { Box, Button, Typography, IconButton } from "@mui/material";
 import FlexBetween from "../FlexBetweenBox";
 import { typeColor } from "./TypeColor";
-import { Close } from "@mui/icons-material";
 import Snackbar from "@mui/material/Snackbar";
 
 const Pokemons = () => {
   const [squad, setSquad] = useState([]);
-
-  const clearSquad = () => {
-    setSquad([]);
-  };
 
   const getPokemon = async () => {
     // Get a random ID out of 386 Pokemons
     const randomId = Math.floor(Math.random() * 386) + 1;
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
     if (!res.ok) throw new Error("failed to fetch data");
-    const pokemonData = await res.json();
+    const newPokemon = await res.json();
 
     // Define a Pokemon in the squad array
-    let collected: Pokemon;
+    let collectedPokemon: Pokemon;
 
-    // Check each collected Pokemon"s ID for duplicates
-    for (collected of squad) {
-      if (collected.id === pokemonData.id) {
-        handleOpen();
-        console.log(collected.id, pokemonData.id);
+    // Check each collected Pokemon's ID for duplicates
+    for (collectedPokemon of squad) {
+      if (collectedPokemon.id === newPokemon.id) {
+        handleDuplicateOpen();
         return;
       }
     }
-    const updatedSquad: any = [...squad, pokemonData];
+
+    const updatedSquad: any = [...squad, newPokemon];
     setSquad(updatedSquad);
 
+    // Triggers a message when squad is to be full
     if (squad.length >= 5) {
       handleFullOpen();
     }
@@ -43,18 +39,18 @@ const Pokemons = () => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  // Snackbar Logic
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const handleOpen = () => {
-    setOpenSnackbar(true);
+  // Snackbar state for duplicate Pokemon
+  const [openDuplicateSnackbar, setOpenDuplicateSnackbar] = useState(false);
+  const handleDuplicateOpen = () => {
+    setOpenDuplicateSnackbar(true);
   };
-  const handleClose = (event: any, reason: any) => {
+  const handleDuplicateClose = (event: any, reason: any) => {
     if (reason === "clickaway") {
       return;
     }
-    setOpenSnackbar(false);
+    setOpenDuplicateSnackbar(false);
   };
-
+  // Snackbar state for full squad
   const [openFullSnackbar, setOpenFullSnackbar] = useState(false);
   const handleFullOpen = () => {
     setOpenFullSnackbar(true);
@@ -75,13 +71,12 @@ const Pokemons = () => {
             vertical: "top",
             horizontal: "center",
           }}
-          open={openSnackbar}
+          open={openDuplicateSnackbar}
           autoHideDuration={2000}
-          onClose={handleClose}
+          onClose={handleDuplicateClose}
           message="Skipped duplicate Pokémon."
         />
       </div>
-
       <div>
         <Snackbar
           sx={{ height: "auto" }}
@@ -108,7 +103,7 @@ const Pokemons = () => {
             <Button
               variant="outlined"
               size="large"
-              onClick={clearSquad}
+              onClick={() => setSquad([])}
               disabled={openFullSnackbar}
               sx={{
                 padding: "1.5rem 4rem",
