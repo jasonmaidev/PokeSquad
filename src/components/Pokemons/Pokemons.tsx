@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Button, Typography, IconButton } from "@mui/material";
 import FlexBetween from "../FlexBetweenBox";
 import { typeColor } from "./TypeColor";
-import { getRandomIds } from "./RandomIds";
+import { Close } from "@mui/icons-material";
+import Snackbar from "@mui/material/Snackbar";
 
 const Pokemons = () => {
   const [squad, setSquad] = useState([]);
@@ -12,23 +13,104 @@ const Pokemons = () => {
   };
 
   const getPokemon = async () => {
-    const randomIds = getRandomIds();
-
-    const res = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${randomIds[0]}`
-    );
+    // Get a random ID out of 386 Pokemons
+    const randomId = Math.floor(Math.random() * 386) + 1;
+    const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
     if (!res.ok) throw new Error("failed to fetch data");
     const pokemonData = await res.json();
+
+    // Define a Pokemon in the squad array
+    let collected: Pokemon;
+
+    // Check each collected Pokemon"s ID for duplicates
+    for (collected of squad) {
+      if (collected.id === pokemonData.id) {
+        handleOpen();
+        console.log(collected.id, pokemonData.id);
+        return;
+      }
+    }
     const updatedSquad: any = [...squad, pokemonData];
     setSquad(updatedSquad);
+
+    if (squad.length >= 5) {
+      handleFullOpen();
+    }
   };
 
+  // Capitalize first letter of Pokemon"s name
   const capFirstLetter = (str: string) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
+  // Snackbar Logic
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const handleOpen = () => {
+    setOpenSnackbar(true);
+  };
+  const handleClose = (event: any, reason: any) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenSnackbar(false);
+  };
+
+  const [openFullSnackbar, setOpenFullSnackbar] = useState(false);
+  const handleFullOpen = () => {
+    setOpenFullSnackbar(true);
+  };
+  const handleFullClose = (event: any, reason: any) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenFullSnackbar(false);
+  };
+
+  const snackbarAction: JSX.Element = (
+    <>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <Close fontSize="small" />
+      </IconButton>
+    </>
+  );
+
   return (
     <>
+      <div>
+        <Snackbar
+          sx={{ height: "auto" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          open={openSnackbar}
+          autoHideDuration={2000}
+          onClose={handleClose}
+          message="Skipped duplicate Pokémon."
+          action={snackbarAction}
+        />
+      </div>
+
+      <div>
+        <Snackbar
+          sx={{ height: "auto" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+          open={openFullSnackbar}
+          autoHideDuration={3000}
+          onClose={handleFullClose}
+          message="Ready to rollout!"
+          action={snackbarAction}
+        />
+      </div>
+
       <Box
         gap={2}
         display={"flex"}
@@ -39,37 +121,14 @@ const Pokemons = () => {
         {squad.length >= 6 ? (
           <>
             <Button
-              variant="contained"
-              disabled={squad.length >= 6}
-              size="large"
-              onClick={getPokemon}
-              sx={{
-                padding: "1.5rem 4rem",
-                textTransform: "none",
-                borderRadius: "6rem",
-                backgroundColor: "#00db9a",
-                boxShadow: "none",
-                fontWeight: 600,
-                color: "#03181f",
-                fontFamily: "quicksand",
-                "&:hover": {
-                  color: "#fff",
-                  backgroundColor: "#ed4e7e",
-                  boxShadow: "none",
-                },
-              }}
-            >
-              Catch Pokemon
-            </Button>
-            <Button
               variant="outlined"
               size="large"
               onClick={clearSquad}
+              disabled={openFullSnackbar}
               sx={{
                 padding: "1.5rem 4rem",
                 textTransform: "none",
                 borderRadius: "6rem",
-                // backgroundColor: "#00db9a",
                 boxShadow: "none",
                 fontWeight: 600,
                 color: "#00db9a",
@@ -78,8 +137,13 @@ const Pokemons = () => {
                 borderWidth: "2px",
                 "&:hover": {
                   color: "#ed4e7e",
-                  // backgroundColor: "#ed4e7e",
                   borderColor: "#ed4e7e",
+                  borderWidth: "2px",
+                  boxShadow: "none",
+                },
+                "&:click": {
+                  color: "#f70289",
+                  borderColor: "#f70289",
                   borderWidth: "2px",
                   boxShadow: "none",
                 },
@@ -106,6 +170,11 @@ const Pokemons = () => {
               "&:hover": {
                 color: "#fff",
                 backgroundColor: "#ed4e7e",
+                boxShadow: "none",
+              },
+              "&:active": {
+                color: "#fff",
+                backgroundColor: "#f70289",
                 boxShadow: "none",
               },
             }}
