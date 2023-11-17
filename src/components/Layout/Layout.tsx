@@ -1,11 +1,9 @@
 import scss from "./Layout.module.scss";
-import { useSession } from "next-auth/react";
 import React from "react";
 import Head from "next/head";
 import Login from "../Login";
 
 const Layout = (props: any) => {
-  const { data: session } = useSession();
 
   return (
     <>
@@ -16,7 +14,7 @@ const Layout = (props: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={scss.layout}>
-        {session ? props.children : <Login />}
+        {props.children}
       </main>
     </>
   );

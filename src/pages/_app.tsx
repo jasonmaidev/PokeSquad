@@ -1,4 +1,3 @@
-import { SessionProvider } from "next-auth/react";
 import React from "react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
@@ -12,7 +11,7 @@ const ColorModeContext = React.createContext({
 });
 
 { /* @ts-expect-error Server Component */}
-const App = ({ Component, pageProps: { session, ...pageProps } }) => {
+const App = ({ Component, pageProps: { ...pageProps } }) => {
   const [mode, setMode] = React.useState<"light" | "dark">("dark");
   const colorMode = React.useMemo(
     () => ({
@@ -43,13 +42,11 @@ const App = ({ Component, pageProps: { session, ...pageProps } }) => {
       <ThemeProvider
         theme={mode === "dark" ? darkThemeChosen : lightThemeChosen}
       >
-        <SessionProvider session={session}>
           <CssBaseline />
           <Header ColorModeContext={ColorModeContext} />
           <Layout>
             <Component {...pageProps} />
           </Layout>
-        </SessionProvider>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

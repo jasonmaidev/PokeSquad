@@ -10,7 +10,6 @@ import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import { TbPokeball } from "react-icons/tb";
-import { signIn, signOut, useSession } from "next-auth/react";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import { useMediaQuery } from "@mui/material";
 
@@ -20,8 +19,6 @@ export type HeaderProps = {
 
 const Header = (props: HeaderProps) => {
   const { ColorModeContext } = props;
-  const { data: session } = useSession();
-  const userProfileImg = session?.user?.image as string;
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -94,39 +91,10 @@ const Header = (props: HeaderProps) => {
           </Typography>
           {tabletCheck && (
             <Box sx={{ paddingRight: 5, marginLeft: "auto" }}>
-              {session ? (
-                <Typography
-                  sx={{
-                    fontFamily: "quicksand",
-                    fontWeight: 400,
-                    color: "inherit",
-                  }}
-                >
-                  Good day! {session?.user?.name}
-                </Typography>
-              ) : (
-                <Typography
-                  sx={{
-                    fontFamily: "quicksand",
-                    fontWeight: 400,
-                    color: "inherit",
-                  }}
-                >
-                  Your Random Pokedex
-                </Typography>
-              )}
             </Box>
           )}
           <ThemeToggleButton ColorModeContext={ColorModeContext} />
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open profile settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar
-                  alt={session?.user?.name as string}
-                  src={userProfileImg}
-                />
-              </IconButton>
-            </Tooltip>
             <Menu
               sx={{ mt: "45px" }}
               id="menu-appbar"
@@ -143,11 +111,6 @@ const Header = (props: HeaderProps) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={() => (session ? signOut() : signIn())}>
-                <Typography textAlign="center">
-                  {session ? "Logout" : "Login"}
-                </Typography>
-              </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
