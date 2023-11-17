@@ -1,7 +1,9 @@
 # Jason | SaberXDev : PokeSquad Web App
 
-A simple Next.Js 13 application for building a random squad of Pokemons from Gen 1 to 3 because these are the only
-REAL Pokemon to exist! The codebase features a hybrid of the latest app routing architecture along with page directory naming conventions via exports per app component which makes for a tidier developer experience.
+A simple Next.Js 13 application for building your random squad of Pokemons from Gen 1 to 3 because they are the only
+REAL Pokemon to ever exist! The codebase features a hybrid of the latest app routing architecture along with page directory naming conventions via exports per app component.
+
+\*\*Note: Typescript "expect error" comment is implemented as a workaround for RSC still failing the build step during deployment.
 
 ## Getting Started
 
@@ -18,8 +20,6 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
