@@ -54,7 +54,6 @@ const Header = (props: HeaderProps) => {
               component="a"
               href=""
               sx={{
-                // mr: 2,
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
                 fontFamily: "quicksand",

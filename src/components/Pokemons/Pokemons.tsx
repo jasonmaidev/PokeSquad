@@ -197,6 +197,7 @@ const Pokemons = () => {
       <Box
         gap={isNonMobileScreens ? 4 : 1}
         pt={isNonMobileScreens ? 8 : 2}
+        pb={isNonMobileScreens ? undefined : 4}
         display={"flex"}
         flexDirection={"row"}
         justifyContent={"center"}
