@@ -37,31 +37,61 @@ const Pokemons = () => {
         p={2}
       >
         {squad.length >= 6 ? (
-          <Button
-            variant="contained"
-            size="large"
-            onClick={clearSquad}
-            sx={{
-              padding: "2% 6%",
-              textTransform: "none",
-              borderRadius: "6rem",
-              backgroundColor: "#00db9a",
-              boxShadow: "none",
-              fontWeight: 600,
-              color: "#03181f",
-              fontFamily: "quicksand",
-              "&:hover": {
-                color: "#fff",
-                backgroundColor: "#ed4e7e",
+          <>
+            <Button
+              variant="contained"
+              disabled={squad.length >= 6}
+              size="large"
+              onClick={getPokemon}
+              sx={{
+                padding: "2% 6%",
+                textTransform: "none",
+                borderRadius: "6rem",
+                backgroundColor: "#00db9a",
                 boxShadow: "none",
-              },
-            }}
-          >
-            Clear Squad
-          </Button>
+                fontWeight: 600,
+                color: "#03181f",
+                fontFamily: "quicksand",
+                "&:hover": {
+                  color: "#fff",
+                  backgroundColor: "#ed4e7e",
+                  boxShadow: "none",
+                },
+              }}
+            >
+              Catch Pokemon
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              onClick={clearSquad}
+              sx={{
+                padding: "2% 6%",
+                textTransform: "none",
+                borderRadius: "6rem",
+                // backgroundColor: "#00db9a",
+                boxShadow: "none",
+                fontWeight: 600,
+                color: "#00db9a",
+                fontFamily: "quicksand",
+                borderColor: "#00db9a",
+                borderWidth: "2px",
+                "&:hover": {
+                  color: "#ed4e7e",
+                  // backgroundColor: "#ed4e7e",
+                  borderColor: "#ed4e7e",
+                  borderWidth: "2px",
+                  boxShadow: "none",
+                },
+              }}
+            >
+              Clear Squad
+            </Button>
+          </>
         ) : (
           <Button
             variant="contained"
+            disabled={squad.length >= 6}
             size="large"
             onClick={getPokemon}
             sx={{
