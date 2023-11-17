@@ -1,9 +1,13 @@
 # Jason | SaberXDev : PokeSquad Web App
 
 A simple Next.Js 13 application for building your random squad of Pokemons from Gen 1 to 3 because they are the only
-REAL Pokemon to ever exist! The codebase features a hybrid of the latest app routing architecture along with page directory naming conventions via exports per app component.
+REAL Pokemon to ever exist...
 
-\*\*Note: Typescript"s "expect error" comment is implemented at "\_app.ts" as a temporary workaround for builds failing with React server components. Will be updated in the future.
+Just kidding! If you would like to include the most recent Gen Pokemons, simply repliacte this codebase and edit the `randomId` variable in `Pokemon.tsx` to return a random integer up to the current total number of Pokemons available across all generations. Voila!
+
+The codebase features a hybrid of the latest app routing architecture along with page directory naming conventions via exports per app component.
+
+\*\*Note: Typescript's `expect error` comment is implemented at `_app.tsx` as a temporary workaround for builds failing with React server components. This will be updated in the future once I have time to hunt down the new documentations for proper syntax rewrites.
 
 ## Getting Started
 
