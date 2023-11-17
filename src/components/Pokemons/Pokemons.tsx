@@ -34,7 +34,7 @@ const Pokemons = () => {
         display={"flex"}
         flexDirection={"row"}
         justifyContent={"center"}
-        p={2}
+        p={4}
       >
         {squad.length >= 6 ? (
           <>
@@ -44,7 +44,7 @@ const Pokemons = () => {
               size="large"
               onClick={getPokemon}
               sx={{
-                padding: "2% 6%",
+                padding: "1.5rem 4rem",
                 textTransform: "none",
                 borderRadius: "6rem",
                 backgroundColor: "#00db9a",
@@ -66,7 +66,7 @@ const Pokemons = () => {
               size="large"
               onClick={clearSquad}
               sx={{
-                padding: "2% 6%",
+                padding: "1.5rem 4rem",
                 textTransform: "none",
                 borderRadius: "6rem",
                 // backgroundColor: "#00db9a",
@@ -95,7 +95,7 @@ const Pokemons = () => {
             size="large"
             onClick={getPokemon}
             sx={{
-              padding: "2% 6%",
+              padding: "1.5rem 4rem",
               textTransform: "none",
               borderRadius: "6rem",
               backgroundColor: "#00db9a",
