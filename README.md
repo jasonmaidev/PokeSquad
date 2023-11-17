@@ -3,7 +3,7 @@
 A simple Next.Js 13 application for building your random squad of Pokemons from Gen 1 to 3 because they are the only
 REAL Pokemon to ever exist! The codebase features a hybrid of the latest app routing architecture along with page directory naming conventions via exports per app component.
 
-\*\*Note: Typescript "expect error" comment is implemented as a workaround for RSC still failing the build step during deployment.
+\*\*Note: Typescript"s "expect error" comment is implemented at "\_app.ts" as a temporary workaround for builds failing with React server components. Will be updated in the future.
 
 ## Getting Started
 

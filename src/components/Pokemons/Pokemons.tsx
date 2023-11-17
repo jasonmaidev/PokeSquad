@@ -125,7 +125,7 @@ const Pokemons = () => {
             fontSize: "0.75rem",
           }}
         >
-          Clear the current squad to catch new ones!
+          To catch new Pokemons, simply clear the current ones!
         </Typography>
       ) : (
         <Typography
