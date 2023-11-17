@@ -13,6 +13,9 @@ const lightTheme: ThemeOptions = {
       default: "#cadbe0",
     },
   },
+  typography: {
+    fontFamily: "quicksand",
+  },
 };
 
 export default lightTheme;

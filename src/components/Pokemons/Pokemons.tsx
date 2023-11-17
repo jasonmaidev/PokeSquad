@@ -198,7 +198,7 @@ const Pokemons = () => {
                   <Typography sx={{ fontSize: "0.75rem" }}>
                     {pokemon?.stats[0].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600 }}>
+                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
                     {pokemon?.stats[0].base_stat}
                   </Typography>
                 </FlexBetween>
@@ -207,7 +207,7 @@ const Pokemons = () => {
                   <Typography sx={{ fontSize: "0.75rem" }}>
                     {pokemon?.stats[1].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600 }}>
+                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
                     {pokemon?.stats[1].base_stat}
                   </Typography>
                 </FlexBetween>
@@ -216,7 +216,7 @@ const Pokemons = () => {
                   <Typography sx={{ fontSize: "0.75rem" }}>
                     {pokemon?.stats[2].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600 }}>
+                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
                     {pokemon?.stats[2].base_stat}
                   </Typography>
                 </FlexBetween>
@@ -225,7 +225,7 @@ const Pokemons = () => {
                   <Typography sx={{ fontSize: "0.75rem" }}>
                     {pokemon?.stats[3].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600 }}>
+                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
                     {pokemon?.stats[3].base_stat}
                   </Typography>
                 </FlexBetween>
@@ -234,7 +234,7 @@ const Pokemons = () => {
                   <Typography sx={{ fontSize: "0.75rem" }}>
                     {pokemon?.stats[4].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600 }}>
+                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
                     {pokemon?.stats[4].base_stat}
                   </Typography>
                 </FlexBetween>
@@ -243,14 +243,20 @@ const Pokemons = () => {
                   <Typography sx={{ fontSize: "0.75rem" }}>
                     {pokemon?.stats[5].stat.name}:
                   </Typography>
-                  <Typography sx={{ fontWeight: 600 }}>
+                  <Typography sx={{ fontWeight: 600, fontFamily: "exo" }}>
                     {pokemon?.stats[5].base_stat}
                   </Typography>
                 </FlexBetween>
 
                 <FlexBetween>
                   <Typography sx={{ fontSize: "0.75rem" }}>Total:</Typography>
-                  <Typography sx={{ fontSize: "1.35rem", fontWeight: 900 }}>
+                  <Typography
+                    sx={{
+                      fontSize: "1.5rem",
+                      fontWeight: 800,
+                      fontFamily: "exo",
+                    }}
+                  >
                     {pokemon?.stats[0].base_stat +
                       pokemon?.stats[1].base_stat +
                       pokemon?.stats[2].base_stat +

@@ -13,6 +13,9 @@ const darkTheme: ThemeOptions = {
       default: "#03181f",
     },
   },
+  typography: {
+    fontFamily: "quicksand",
+  },
 };
 
 export default darkTheme;
