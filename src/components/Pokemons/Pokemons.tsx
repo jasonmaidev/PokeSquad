@@ -66,19 +66,6 @@ const Pokemons = () => {
     setOpenFullSnackbar(false);
   };
 
-  const snackbarAction: JSX.Element = (
-    <>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <Close fontSize="small" />
-      </IconButton>
-    </>
-  );
-
   return (
     <>
       <div>
@@ -92,7 +79,6 @@ const Pokemons = () => {
           autoHideDuration={2000}
           onClose={handleClose}
           message="Skipped duplicate Pokémon."
-          action={snackbarAction}
         />
       </div>
 
@@ -107,7 +93,6 @@ const Pokemons = () => {
           autoHideDuration={3000}
           onClose={handleFullClose}
           message="Ready to rollout!"
-          action={snackbarAction}
         />
       </div>
 
