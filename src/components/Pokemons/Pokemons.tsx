@@ -31,6 +31,10 @@ const Pokemons = () => {
     const updatedSquad: any = [...squad, newPokemon];
     setSquad(updatedSquad);
 
+    // Triggers a message when a Pokemon is added
+    if (squad.length < 5) {
+      handleAddOpen();
+    }
     // Triggers a message when squad is to be full
     if (squad.length >= 5) {
       handleFullOpen();
@@ -52,6 +56,17 @@ const Pokemons = () => {
       return;
     }
     setOpenDuplicateSnackbar(false);
+  };
+  // Snackbar state for adding a Pokemon
+  const [openAddSnackbar, setOpenAddSnackbar] = useState(false);
+  const handleAddOpen = () => {
+    setOpenAddSnackbar(true);
+  };
+  const handleAddClose = (event: any, reason: any) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenAddSnackbar(false);
   };
   // Snackbar state for full squad
   const [openFullSnackbar, setOpenFullSnackbar] = useState(false);
@@ -87,8 +102,21 @@ const Pokemons = () => {
             vertical: "top",
             horizontal: "center",
           }}
+          open={openAddSnackbar}
+          autoHideDuration={1000}
+          onClose={handleAddClose}
+          message="Pokemon added."
+        />
+      </div>
+      <div>
+        <Snackbar
+          sx={{ height: "auto" }}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
           open={openFullSnackbar}
-          autoHideDuration={3000}
+          autoHideDuration={2000}
           onClose={handleFullClose}
           message="Ready to rollout!"
         />
@@ -138,7 +166,7 @@ const Pokemons = () => {
         ) : (
           <Button
             variant="contained"
-            disabled={squad.length >= 6}
+            disabled={openAddSnackbar || squad.length >= 6}
             size="large"
             onClick={getPokemon}
             sx={{
@@ -203,6 +231,7 @@ const Pokemons = () => {
         justifyContent={"center"}
         alignItems={"flex-end"}
         justifyItems={"center"}
+        alignContent={"flex-start"}
         flexWrap={"wrap"}
       >
         {squad?.map((pokemon: any) => {
