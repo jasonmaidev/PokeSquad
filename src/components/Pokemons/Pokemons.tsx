@@ -22,7 +22,20 @@ const Pokemons = () => {
 
     // Check each collected Pokemon's ID for duplicates
     for (collectedPokemon of squad) {
-      if (collectedPokemon.id === newPokemon.id) {
+      if (
+        collectedPokemon.id === newPokemon.id ||
+        collectedPokemon.id - 1 === newPokemon.id ||
+        collectedPokemon.id - 2 === newPokemon.id ||
+        collectedPokemon.id + 1 === newPokemon.id ||
+        collectedPokemon.id + 2 === newPokemon.id
+      ) {
+        console.log(
+          "caught ID: ",
+          newPokemon.id,
+          "collected ID: ",
+          collectedPokemon.id
+        );
+
         handleDuplicateOpen();
         return;
       }
@@ -92,7 +105,7 @@ const Pokemons = () => {
           open={openDuplicateSnackbar}
           autoHideDuration={2000}
           onClose={handleDuplicateClose}
-          message="Skipped duplicate Pokémon."
+          message="Skipped potential duplicate."
         />
       </div>
       <div>
@@ -105,7 +118,7 @@ const Pokemons = () => {
           open={openAddSnackbar}
           autoHideDuration={1000}
           onClose={handleAddClose}
-          message="Pokemon added."
+          message="Adding Pokemon..."
         />
       </div>
       <div>
