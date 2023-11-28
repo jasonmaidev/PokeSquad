@@ -1,6 +1,4 @@
 import { ThemeOptions } from "@mui/material";
-import { quicksand } from "./fonts";
-import { exo } from "./fonts";
 
 const darkTheme: ThemeOptions = {
   palette: {
