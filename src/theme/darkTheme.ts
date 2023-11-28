@@ -1,4 +1,6 @@
 import { ThemeOptions } from "@mui/material";
+import { quicksand } from "./fonts";
+import { exo } from "./fonts";
 
 const darkTheme: ThemeOptions = {
   palette: {
@@ -13,9 +15,7 @@ const darkTheme: ThemeOptions = {
       default: "#03181f",
     },
   },
-  typography: {
-    fontFamily: "quicksand",
-  },
+  typography: { fontFamily: "Quicksand, Exo_2" },
 };
 
 export default darkTheme;

@@ -13,9 +13,7 @@ const lightTheme: ThemeOptions = {
       default: "#e6f0f2",
     },
   },
-  typography: {
-    fontFamily: "quicksand",
-  },
+  typography: { fontFamily: "Quicksand, Exo_2" },
 };
 
 export default lightTheme;
