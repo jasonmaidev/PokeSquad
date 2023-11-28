@@ -3,7 +3,7 @@ import { Box, Typography, Container } from "@mui/material";
 import { TbPokeball } from "react-icons/tb";
 import ThemeToggleButton from "@/components/ThemeToggleButton";
 import FlexBetween from "../FlexBetweenBox";
-import { quicksand } from "@/theme/fonts";
+import { exo } from "@/theme/fonts";
 
 export type HeaderProps = {
   ColorModeContext: React.Context<{ toggleColorMode: () => void }>;
@@ -39,7 +39,7 @@ const Header = (props: HeaderProps) => {
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
-                fontFamily: quicksand,
+                fontFamily: exo,
                 fontWeight: 900,
                 letterSpacing: ".1rem",
                 color: "inherit",
@@ -57,7 +57,7 @@ const Header = (props: HeaderProps) => {
               sx={{
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
-                fontFamily: quicksand,
+                fontFamily: exo,
                 fontSize: "0.75rem",
                 fontWeight: 900,
                 letterSpacing: ".2rem",

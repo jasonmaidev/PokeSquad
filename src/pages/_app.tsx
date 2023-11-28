@@ -5,12 +5,15 @@ import darkTheme from "@/theme/darkTheme";
 import lightTheme from "@/theme/lightTheme";
 import Header from "@/components/Header";
 import Layout from "@/components/Layout";
+import { exo } from "@/theme/fonts";
 
 const ColorModeContext = React.createContext({
   toggleColorMode: () => {},
 });
 
-{ /* @ts-expect-error Server Component */}
+{
+  /* @ts-expect-error Server Component */
+}
 const App = ({ Component, pageProps: { ...pageProps } }) => {
   const [mode, setMode] = React.useState<"light" | "dark">("dark");
   const colorMode = React.useMemo(
@@ -42,11 +45,11 @@ const App = ({ Component, pageProps: { ...pageProps } }) => {
       <ThemeProvider
         theme={mode === "dark" ? darkThemeChosen : lightThemeChosen}
       >
-          <CssBaseline />
-          <Header ColorModeContext={ColorModeContext} />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+        <CssBaseline />
+        <Header ColorModeContext={ColorModeContext} />
+        <Layout className={exo.className}>
+          <Component {...pageProps} />
+        </Layout>
       </ThemeProvider>
     </ColorModeContext.Provider>
   );

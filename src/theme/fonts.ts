@@ -1,11 +1,7 @@
-import { Quicksand, Exo_2 } from "next/font/google";
+import { Exo } from "next/font/google";
 
-export const quicksand = Quicksand({
+export const exo = Exo({
+  weight: ["400", "600", "700", "800"],
+  style: ["normal"],
   subsets: ["latin"],
-  display: "swap",
-});
-
-export const exo = Exo_2({
-  subsets: ["latin"],
-  display: "swap",
 });

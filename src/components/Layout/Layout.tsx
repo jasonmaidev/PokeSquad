@@ -1,6 +1,5 @@
 import scss from "./Layout.module.scss";
 import Head from "next/head";
-import { quicksand } from "@/theme/fonts";
 import { exo } from "@/theme/fonts";
 
 const Layout = (props: any) => {
@@ -12,9 +11,7 @@ const Layout = (props: any) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main
-        className={`${scss.layout} ${quicksand.className} ${exo.className}`}
-      >
+      <main className={`${scss.layout} ${exo.className}`}>
         {props.children}
       </main>
     </>
