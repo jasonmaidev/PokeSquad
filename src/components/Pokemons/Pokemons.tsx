@@ -3,6 +3,8 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import FlexBetween from "../FlexBetweenBox";
 import { typeColor } from "./TypeColor";
 import Snackbar from "@mui/material/Snackbar";
+import { quicksand } from "@/theme/fonts";
+import { exo } from "@/theme/fonts";
 
 const Pokemons = () => {
   const isNonMobileScreens = useMediaQuery(
@@ -156,7 +158,7 @@ const Pokemons = () => {
                 boxShadow: "none",
                 fontWeight: 600,
                 color: "#00db9a",
-                fontFamily: "quicksand",
+                fontFamily: quicksand,
                 borderColor: "#00db9a",
                 borderWidth: "2px",
                 "&:hover": {
@@ -190,7 +192,7 @@ const Pokemons = () => {
               boxShadow: "none",
               fontWeight: 600,
               color: "#03181f",
-              fontFamily: "quicksand",
+              fontFamily: quicksand,
               "&:hover": {
                 color: "#fff",
                 backgroundColor: "#ed4e7e",
@@ -212,7 +214,7 @@ const Pokemons = () => {
         <Typography
           textAlign={"center"}
           sx={{
-            fontFamily: "quicksand",
+            fontFamily: quicksand,
             color: "#587f85",
             fontWeight: 600,
             fontSize: "0.75rem",
@@ -224,7 +226,7 @@ const Pokemons = () => {
         <Typography
           textAlign={"center"}
           sx={{
-            fontFamily: "quicksand",
+            fontFamily: quicksand,
             color: "#587f85",
             fontWeight: 600,
             fontSize: "0.75rem",
@@ -306,7 +308,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -323,7 +325,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -340,7 +342,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -357,7 +359,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -374,7 +376,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -391,7 +393,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -409,7 +411,7 @@ const Pokemons = () => {
                     sx={{
                       fontSize: isNonMobileScreens ? "1.5rem" : "1rem",
                       fontWeight: 800,
-                      fontFamily: "exo",
+                      fontFamily: exo,
                     }}
                   >
                     {pokemon?.stats[0].base_stat +
