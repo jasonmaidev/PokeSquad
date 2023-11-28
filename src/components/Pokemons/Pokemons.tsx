@@ -3,7 +3,7 @@ import { Box, Button, Typography, useMediaQuery } from "@mui/material";
 import FlexBetween from "../FlexBetweenBox";
 import { typeColor } from "./TypeColor";
 import Snackbar from "@mui/material/Snackbar";
-import { exo } from "@/theme/fonts";
+// import { "calibri" } from "@/theme/fonts";
 
 const Pokemons = () => {
   const isNonMobileScreens = useMediaQuery(
@@ -157,7 +157,7 @@ const Pokemons = () => {
                 boxShadow: "none",
                 fontWeight: 600,
                 color: "#00db9a",
-                fontFamily: exo,
+                fontFamily: "calibri",
                 borderColor: "#00db9a",
                 borderWidth: "2px",
                 "&:hover": {
@@ -191,7 +191,7 @@ const Pokemons = () => {
               boxShadow: "none",
               fontWeight: 600,
               color: "#03181f",
-              fontFamily: exo,
+              fontFamily: "calibri",
               "&:hover": {
                 color: "#fff",
                 backgroundColor: "#ed4e7e",
@@ -213,7 +213,7 @@ const Pokemons = () => {
         <Typography
           textAlign={"center"}
           sx={{
-            fontFamily: exo,
+            fontFamily: "calibri",
             color: "#587f85",
             fontWeight: 600,
             fontSize: "0.75rem",
@@ -225,7 +225,7 @@ const Pokemons = () => {
         <Typography
           textAlign={"center"}
           sx={{
-            fontFamily: exo,
+            fontFamily: "calibri",
             color: "#587f85",
             fontWeight: 600,
             fontSize: "0.75rem",
@@ -307,7 +307,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -324,7 +324,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -341,7 +341,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -358,7 +358,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -375,7 +375,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -392,7 +392,7 @@ const Pokemons = () => {
                   <Typography
                     sx={{
                       fontWeight: 600,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                       fontSize: isNonMobileScreens ? undefined : "0.75rem",
                     }}
                   >
@@ -408,9 +408,9 @@ const Pokemons = () => {
                   </Typography>
                   <Typography
                     sx={{
-                      fontSize: isNonMobileScreens ? "1.5rem" : "1rem",
+                      fontSize: isNonMobileScreens ? "2rem" : "1rem",
                       fontWeight: 800,
-                      fontFamily: exo,
+                      fontFamily: "calibri",
                     }}
                   >
                     {pokemon?.stats[0].base_stat +

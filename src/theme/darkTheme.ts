@@ -13,7 +13,7 @@ const darkTheme: ThemeOptions = {
       default: "#03181f",
     },
   },
-  typography: { fontFamily: "Exo" },
+  typography: { fontFamily: "calibri" },
 };
 
 export default darkTheme;
